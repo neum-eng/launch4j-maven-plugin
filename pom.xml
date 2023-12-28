@@ -49,9 +49,24 @@
         <tag>HEAD</tag>
     </scm>
 
+    <repositories>
+		<repository>
+		    <id>github</id>
+		    <name>Neumeier package repository</name>
+		    <url>https://maven.pkg.github.com/neum-eng/*</url>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/neum-eng/launch4j-maven-plugin</url>
+		</repository>
+	</distributionManagement>
+
     <dependencies>
         <dependency>
-            <groupId>net.sf.launch4j</groupId>
+            <groupId>com.neumeier1</groupId>
             <artifactId>launch4j</artifactId>
             <version>${launch4j.version}</version>
             <classifier>core</classifier>
