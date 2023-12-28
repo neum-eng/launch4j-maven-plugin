@@ -19,14 +19,14 @@
         <relativePath />
     </parent>
 
-    <groupId>com.akathist.maven.plugins.launch4j</groupId>
+    <groupId>com.neumeier1</groupId>
     <artifactId>launch4j-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>2.4.1</version>
 
     <name>Maven Launch4j Plugin</name>
     <description>This plugin creates Windows executables from Java jar files using the Launch4j utility.</description>
-    <url>https://orphan.software/</url>
+    <url>https://github.com/neum-eng/launch4j-maven-plugin</url>
 
     <properties>
         <launch4j.version>3.50</launch4j.version>
@@ -43,9 +43,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:orphan-oss/launch4j-maven-plugin.git</connection>
-        <url>git@github.com:orphan-oss/launch4j-maven-plugin.git</url>
-        <developerConnection>scm:git:git@github.com:orphan-oss/launch4j-maven-plugin.git</developerConnection>
+        <connection>scm:git:git@github.com:neum-eng/launch4j-maven-plugin.git</connection>
+        <url>git@github.com:neum-eng/launch4j-maven-plugin.git</url>
+        <developerConnection>scm:git:git@github.com:neum-eng/launch4j-maven-plugin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
