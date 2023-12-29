@@ -22,7 +22,7 @@ on:
       - master
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow to apply a label and merge
+# Sets permissions of the GH_PACKAGES to allow to apply a label and merge
 # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
 permissions:
   contents: write
@@ -35,9 +35,6 @@ concurrency: ci-${{ github.ref }}
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [ 8, 11, 17 ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3.5.2
@@ -48,13 +45,15 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Set up JDK ${{ matrix.java }}
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: adopt
-          java-version: ${{ matrix.java }}
-      - name: Build with Maven on Java ${{ matrix.java }}
-        run: mvn -V test -Ddoclint=all --file pom.xml --no-transfer-progress
+          java-version: 8
+      - name: Build with Maven on Java 8
+        run: mvn -V deploy -Ddoclint=all --file pom.xml --no-transfer-progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES }}
 
   automerge:
     if: github.event_name == 'pull_request' && github.actor == 'renovate[bot]'
@@ -64,10 +63,10 @@ jobs:
       - name: Apply automerge label
         run: gh pr edit "$PR_URL" --add-label "automerge"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES }}
           PR_URL: ${{ github.event.pull_request.html_url }}
       - name: Automerge
         run: gh pr merge -m "$PR_URL"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES }}
           PR_URL: ${{ github.event.pull_request.html_url }}
