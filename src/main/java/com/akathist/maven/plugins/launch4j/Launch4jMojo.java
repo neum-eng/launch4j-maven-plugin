@@ -744,6 +744,7 @@ public class Launch4jMojo extends AbstractMojo {
             log.debug("jre.minVersion = " + c.getJre().getMinVersion());
             log.debug("jre.maxVersion = " + c.getJre().getMaxVersion());
             log.debug("jre.requiresJdk = " + c.getJre().getRequiresJdk());
+            log.debug("jre.requiresJfx = " + c.getJre().getRequiresJfx());
             log.debug("jre.requires64Bit = " + c.getJre().getRequires64Bit());
             log.debug("jre.initialHeapSize = " + c.getJre().getInitialHeapSize());
             log.debug("jre.initialHeapPercent = " + c.getJre().getInitialHeapPercent());

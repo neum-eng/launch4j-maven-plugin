@@ -69,6 +69,14 @@ public class Jre {
     boolean requires64Bit;
 
     /**
+     * When set to "true", limits the runtimes to ones that contain JavaFX modules only
+     * 
+     * @since version 2.4.1
+     */
+    @Parameter(defaultValue = "false")
+    boolean requiresJfx;
+
+    /**
      * Use this property if you want the executable to search the system for a jre.
      * It names the minimum version acceptable, in x.x.x[_xx] format.
      * <p>
@@ -177,6 +185,7 @@ public class Jre {
         ret.setMinVersion(minVersion);
         ret.setMaxVersion(maxVersion);
         ret.setRequiresJdk(requiresJdk);
+        ret.setRequiresJfx(requiresJfx);
         ret.setInitialHeapSize(initialHeapSize);
         ret.setInitialHeapPercent(initialHeapPercent);
         ret.setMaxHeapSize(maxHeapSize);
@@ -194,6 +203,7 @@ public class Jre {
                 ", minVersion='" + minVersion + '\'' +
                 ", maxVersion='" + maxVersion + '\'' +
                 ", requiresJdk=" + requiresJdk +
+                ", requiresJfx=" + requiresJfx +
                 ", initialHeapSize=" + initialHeapSize +
                 ", initialHeapPercent=" + initialHeapPercent +
                 ", maxHeapSize=" + maxHeapSize +

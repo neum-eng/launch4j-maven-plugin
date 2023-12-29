@@ -29,6 +29,7 @@
                         <bundledJreAsFallback>true</bundledJreAsFallback>
                         <jdkPreference>preferJre</jdkPreference>
                         <requiresJdk>true</requiresJdk>
+                        <requiresJfx>true</requiresJfx>
                         <bundledJre64Bit>true</bundledJre64Bit>
                         <runtimeBits>32</runtimeBits>
                         <opts>

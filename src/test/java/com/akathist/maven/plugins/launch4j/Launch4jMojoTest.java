@@ -36,6 +36,7 @@ public class Launch4jMojoTest extends AbstractMojoTestCase {
                 "minVersion='1.8', " +
                 "maxVersion='null', " +
                 "requiresJdk=true," +
+                " requiresJfx=true," +
                 " initialHeapSize=0, " +
                 "initialHeapPercent=0, " +
                 "maxHeapSize=0, " +
