@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+	<interactiveMode>false</interactiveMode>
+	<profiles>
+		<profile>
+			<id>neumeier_repositories</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>github_packages</id>
+					<url>https://maven.pkg.github.com/neum-eng/*</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>central</id>
+					<name>Central Repository</name>
+					<url>https://repo.maven.apache.org/maven2</url>
+					<layout>default</layout>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>github_packages</id>
+					<url>https://maven.pkg.github.com/neum-eng/*</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<id>central</id>
+					<name>Central Repository</name>
+					<url>https://repo.maven.apache.org/maven2</url>
+					<layout>default</layout>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	<servers>
+		<server>
+			<id>github_packages</id>
+			<username>${github.actor}</username>
+			<password>${env.packages_token}</password>
+		</server>
+		<server>
+			<id>github</id>
+			<username>${github.actor}</username>
+			<password>${env.GITHUB_TOKEN}</password>
+		</server>
+	</servers>
+	<mirrors/>
+	<proxies/>
+</settings>

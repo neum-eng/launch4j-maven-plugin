@@ -48,14 +48,6 @@
         <developerConnection>scm:git:git@github.com:neum-eng/launch4j-maven-plugin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <repositories>
-		<repository>
-		    <id>github</id>
-		    <name>Neumeier package repository</name>
-		    <url>https://maven.pkg.github.com/neum-eng/*</url>
-		</repository>
-	</repositories>
 	
 	<distributionManagement>
 		<repository>

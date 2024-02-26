@@ -1,0 +1,30 @@
+name: Deploy to GitHub Packages Maven
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: copy maven settings
+        run: mkdir ~/.m2 && cp .github/settings.xml "$_"
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: adopt
+          java-version: 8
+          cache: maven
+          overwrite-settings: false
+      - name: Build with Maven on Java 8
+        run: mvn -V deploy -Ddoclint=all --file pom.xml --no-transfer-progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          packages_token: ${{ secrets.packages_token }}
